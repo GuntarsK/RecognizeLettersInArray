@@ -38,6 +38,7 @@ public class Main {
                 {1, 0, 1},
         };
 
+//      Few test cases
         int[][] HL = {
                 {1, 0, 1, 0, 0},
                 {1, 1, 1, 0, 0},
@@ -61,7 +62,7 @@ public class Main {
         for (int row = 0; row < HL.length - 2; row++) {
             for (int col = 0; col < HL[row].length - 2; col++) {
 
-//      Creating a 3x3 array/fragment of big array to compare with 3x3 letter arrays
+//      Creating a 3x3 array/fragment from big array to compare with 3x3 letter arrays
                 int[][] temp = new int[3][3];
                 for (int r = 0; r < 3; r++) {
                     for (int c = 0; c < 3; c++) {
@@ -69,7 +70,7 @@ public class Main {
                     }
                 }
 
-//      Additional rule - creating a fragment one step to the right from "temp" fragment (e.g. C and O)
+//      Additional rule - creating a fragment one step to the right from "temp" fragment (for cases similar to C & O)
                 int[][] tempNext = new int[3][3];
                 for (int r = 0; r < 3; r++) {
                     for (int c = 0; c < 3; c++) {
