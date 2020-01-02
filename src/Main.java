@@ -2,110 +2,42 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 
-        int[][] O = {
-                {1, 1, 1},
-                {1, 0, 1},
-                {1, 1, 1},
-        };
-        int[][] T = {
-                {1, 1, 1},
-                {0, 1, 0},
-                {0, 1, 0},
-        };
-        int[][] C = {
-                {0, 1, 1},
-                {0, 1, 0},
-                {0, 1, 1},
-        };
-        int[][] P = {
-                {1, 1, 0},
-                {1, 1, 0},
-                {1, 0, 0},
-        };
-        int[][] H = {
-                {1, 0, 1},
-                {1, 1, 1},
-                {1, 0, 1},
-        };
-        int[][] L = {
-                {0, 1, 0},
-                {0, 1, 0},
-                {0, 1, 1},
-        };
-        int[][] A = {
-                {0, 1, 0},
-                {1, 1, 1},
-                {1, 0, 1},
-        };
-
-//      Few test cases
-        int[][] HL = {
-                {1, 0, 1, 0, 0},
-                {1, 1, 1, 0, 0},
-                {1, 0, 1, 0, 0},
-                {0, 0, 0, 1, 0},
-                {0, 0, 0, 1, 0},
-                {0, 0, 0, 1, 1},
-        };
-        int[][] OOOO = {
-                {1, 1, 1, 0, 1, 1, 0},
-                {1, 0, 1, 0, 1, 0, 0},
-                {1, 1, 1, 0, 1, 1, 0},
-                {0, 0, 0, 0, 0, 0, 0},
-                {1, 1, 1, 0, 1, 1, 1},
-                {1, 0, 1, 0, 1, 0, 1},
-                {1, 1, 1, 0, 1, 1, 1},
-        };
-
         StringBuilder sb = new StringBuilder();
 
-        for (int row = 0; row < HL.length - 2; row++) {
-            for (int col = 0; col < HL[row].length - 2; col++) {
+        for (int row = 0; row < TestCase.TextToRecognize.length - 4; row++) {
+            for (int col = 0; col < TestCase.TextToRecognize[row].length - 2; col++) {
 
-//      Creating a 3x3 array/fragment from big array to compare with 3x3 letter arrays
-                int[][] temp = new int[3][3];
-                for (int r = 0; r < 3; r++) {
+//      Creating a 5x3 array blocks from big array to compare with each 5x3 letter array
+                int[][] temp = new int[5][3];
+                for (int r = 0; r < 5; r++) {
                     for (int c = 0; c < 3; c++) {
-                        temp[r][c] = HL[r + row][c + col];
+                        temp[r][c] = TestCase.TextToRecognize[r + row][c + col];
                     }
                 }
 
-//      Additional rule - creating a fragment one step to the right from "temp" fragment (for cases similar to C & O)
-                int[][] tempNext = new int[3][3];
-                for (int r = 0; r < 3; r++) {
-                    for (int c = 0; c < 3; c++) {
-                        if (col < HL[row].length-3) {
-                            tempNext[r][c] = HL[r + row][c + col + 1];
-                        }
-                    }
-                }
-
-
-                if (Arrays.deepEquals(temp, O) ) {
+                if (Arrays.deepEquals(temp, Letters.A) ) {
+                    sb.append("A");
+                } else if (Arrays.deepEquals(temp, Letters.B) ) {
+                    sb.append("B");
+                } else if (Arrays.deepEquals(temp, Letters.C) ) {
+                    sb.append("C");
+                } else if (Arrays.deepEquals(temp, Letters.D) ) {
+                    sb.append("D");
+                } else if (Arrays.deepEquals(temp, Letters.E) ) {
+                    sb.append("E");
+                } else if (Arrays.deepEquals(temp, Letters.F) ) {
+                    sb.append("F");
+                } else if (Arrays.deepEquals(temp, Letters.H) ) {
+                    sb.append("H");
+                } else if (Arrays.deepEquals(temp, Letters.L) ) {
+                    sb.append("L");
+                } else if (Arrays.deepEquals(temp, Letters.O) ) {
                     sb.append("O");
                 }
-                if ( Arrays.deepEquals(temp, C) && !Arrays.deepEquals(tempNext, O) ) {
-                    sb.append("C");
-                }
-                if (Arrays.deepEquals(temp, T) ) {
-                    sb.append("T");
-                }
-                if (Arrays.deepEquals(temp, P) ) {
-                    sb.append("P");
-                }
-                if (Arrays.deepEquals(temp, H) ) {
-                    sb.append("H");
-                }
-                if (Arrays.deepEquals(temp, L) ) {
-                    sb.append("L");
-                }
-                if (Arrays.deepEquals(temp, A) ) {
-                    sb.append("A");
-                }
+
             }
         }
         System.out.println(sb);
-
 
     }
 }
