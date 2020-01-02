@@ -34,7 +34,6 @@ public class Main {
                 } else if (Arrays.deepEquals(temp, Letters.O) ) {
                     sb.append("O");
                 }
-
             }
         }
         System.out.println(sb);
