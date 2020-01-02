@@ -1,0 +1,2 @@
+Reference letters are made of 5x3 arrays consisting from 0 and 1.
+Text-to-recognize array is not limited in size and is always bigger than 5x3. Program recognizes and prints letters hidden in this array.
