@@ -4,14 +4,15 @@ public class Launcher {
 
         StringBuilder sb = new StringBuilder();
 
-        for (int row = 0; row < TestCase.TextToRecognize.length - 4; row++) {
-            for (int col = 0; col < TestCase.TextToRecognize[row].length - 2; col++) {
+//      Main loop which iterates through big array
+        for (int row = 0; row < HiddenText.TextToRecognize.length - 4; row++) {
+            for (int col = 0; col < HiddenText.TextToRecognize[row].length - 2; col++) {
 
-//      Creating a 5x3 array blocks from big array to compare with each 5x3 letter array
+//      Creating a 5x3 array blocks from the big array to compare with each 5x3 letter array
                 int[][] temp = new int[5][3];
                 for (int r = 0; r < 5; r++) {
                     for (int c = 0; c < 3; c++) {
-                        temp[r][c] = TestCase.TextToRecognize[r + row][c + col];
+                        temp[r][c] = HiddenText.TextToRecognize[r + row][c + col];
                     }
                 }
 
